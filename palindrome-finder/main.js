@@ -11,16 +11,21 @@ do {
 console.log(inputWord);
 
 // comunicate if the sentence is palindrome or not, calling the isPalindrome function
-if (isPalindrome(inputWord)) {
+if (isPalindromeWLoops(inputWord)) {
+    console.log("La parola inserita è palindroma");
+} else {
+    console.log("La parola inserita non è palindroma");
+}
+
+if (isPalindromeWFunctions(inputWord)) {
     console.log("La parola inserita è palindroma");
 } else {
     console.log("La parola inserita non è palindroma");
 }
 
 
-
-
-function isPalindrome(word) {
+/* ======== Loops solutions ========= */
+function isPalindromeWLoops(word) {
     // make the word lowercase and erase all whitespaces
     word = word.toLowerCase().replace(/ /g, '');
 
@@ -38,7 +43,16 @@ function isPalindrome(word) {
         }
         leftIndex++;
         rightIndex--;
-        
+
     }
     return result;
+}
+
+
+/* ======== JS function solution =========== */
+function isPalindromeWFunctions(word) {
+    return word == word.split('').reverse().join('');
+    // transform the word and transform it into an array, reverse the order of the array
+    // converts the array into a sting again and compare it with the original word.
+    // If they are equal returns true, otherwise false
 }
